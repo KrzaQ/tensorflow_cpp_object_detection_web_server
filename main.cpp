@@ -12,7 +12,7 @@ Detector testDetector;
 
 int main(int argc, char* argv[]) {
     setenv("CUDA_VISIBLE_DEVICES", "", -1);
-    string GRAPH = "optimized_face_detector.pb";
+    string GRAPH = argc > 1 ? argv[1] : "optimized_face_detector.pb";
     int loadModelStatus = testDetector.loadModel(GRAPH);
     if (loadModelStatus < 0) {
         LOG(ERROR) << "Load model failed!";
